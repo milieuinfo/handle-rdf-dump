@@ -1,0 +1,642 @@
+@prefix dsi_kind: <https://data.dsi.omgeving.vlaanderen.be/id/kind/> .
+@prefix dsi_case_id: <https://data.dsi.omgeving.vlaanderen.be/id/case/> .
+@prefix dsi_procedure_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/procedure/> .
+@prefix dsi_distribution: <https://data.dsi.omgeving.vlaanderen.be/id/distribution/> .
+@prefix dsi_activity: <https://data.dsi.omgeving.vlaanderen.be/id/activity/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix dsi_natrajectneerslag_id: <https://data.dsi.omgeving.vlaanderen.be/id/natrajectneerslag/> .
+@prefix besluit: <https://data.vlaanderen.be/ns/besluit#> .
+@prefix dsi_stukcategorie_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/stukcategorie/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix dsi_pn: <https://data.dsi.omgeving.vlaanderen.be/id/procedurestapneerslag/> .
+@prefix dsi_conceptscheme: <https://data.dsi.omgeving.vlaanderen.be/id/conceptscheme/> .
+@prefix dsi_procedureassociatie_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/procedureassociatie/> .
+@prefix dsi_location_id: <https://data.dsi.omgeving.vlaanderen.be/id/location/> .
+@prefix dsi_ondergrond_id: <https://data.dsi.omgeving.vlaanderen.be/id/kaartondergrond/> .
+@prefix dsi_unitofwork: <https://data.dsi.omgeving.vlaanderen.be/id/unitofwork/> .
+@prefix dsi_identifier_id: <https://data.dsi.omgeving.vlaanderen.be/id/identifier/> .
+@prefix dsi_planelement_id: <https://data.dsi.omgeving.vlaanderen.be/id/planelement/> .
+@prefix dsi_natraject: <https://data.dsi.omgeving.vlaanderen.be/id/natraject/> .
+@prefix dsi_ondergrond_type: <https://data.dsi.omgeving.vlaanderen.be/id/concept/kaartondergrond/> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix vlcs:  <https://data.omgeving.vlaanderen.be/id/conceptscheme/> .
+@prefix dsi_activity_id: <https://data.dsi.omgeving.vlaanderen.be/id/activity/> .
+@prefix dsi_concept_zaak: <https://data.dsi.omgeving.vlaanderen.be/id/concept/zaak/> .
+@prefix dsi_waarde_id: <https://data.dsi.omgeving.vlaanderen.be/id/waarde/> .
+@prefix dsi_unitofwork_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/unitofwork/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dsi_planschorsing_beslissing: <https://data.dsi.omgeving.vlaanderen.be/id/concept/aardbeslissing/> .
+@prefix dsi_dossiertype_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/dossiertype/> .
+@prefix dsi_deelgebied_id: <https://data.dsi.omgeving.vlaanderen.be/id/deelgebied/> .
+@prefix dsi_dossier: <https://data.dsi.omgeving.vlaanderen.be/id/dossier/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dsi_planobject_type: <https://data.dsi.omgeving.vlaanderen.be/id/concept/planobjecttype/> .
+@prefix dsi_plangebied_type: <https://data.dsi.omgeving.vlaanderen.be/id/concept/ruimtelijkinstrument/> .
+@prefix eli:   <http://data.europa.eu/eli/ontology#> .
+@prefix dsi_role: <https://data.dsi.omgeving.vlaanderen.be/id/role/> .
+@prefix dsi_adviesuitkomst_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/adviesuitkomst/> .
+@prefix adms:  <http://www.w3.org/ns/adms#> .
+@prefix besluitvorming: <https://data.vlaanderen.be/ns/besluitvorming#> .
+@prefix pav:   <http://purl.org/pav/> .
+@prefix dsi_relatie_id: <https://data.dsi.omgeving.vlaanderen.be/id/relatie/> .
+@prefix omgeving_dossier: <https://data.omgeving.vlaanderen.be/ns/dossier#> .
+@prefix dossier: <https://data.vlaanderen.be/ns/dossier#> .
+@prefix dsi_procedurestap_id: <https://data.dsi.omgeving.vlaanderen.be/id/procedurestap/> .
+@prefix waarde: <https://data.omgeving.vlaanderen.be/ns/waarde#> .
+@prefix dsi_natraject_id: <https://data.dsi.omgeving.vlaanderen.be/id/natraject/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dsi_collection: <https://data.dsi.omgeving.vlaanderen.be/id/classificationlevel/> .
+@prefix dsi_planningsniveau_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/bevoegdheidsniveau/> .
+@prefix xkos:  <http://rdf-vocabulary.ddialliance.org/xkos#> .
+@prefix dsi_dossier_id: <https://data.dsi.omgeving.vlaanderen.be/id/dossier/> .
+@prefix dbo:   <http://dbpedia.org/ontology/> .
+@prefix dbp:   <http://dbpedia.org/property/> .
+@prefix dsi_agent: <https://data.dsi.omgeving.vlaanderen.be/id/agent/> .
+@prefix dsi_association: <https://data.dsi.omgeving.vlaanderen.be/id/association/> .
+@prefix dsi_kind_id: <https://data.dsi.omgeving.vlaanderen.be/id/kind/> .
+@prefix dsi:   <https://data.dsi.omgeving.vlaanderen.be/ns/dsi#> .
+@prefix dsi_rol_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/rol/> .
+@prefix dsi_stuk_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/stuk/> .
+@prefix dsi_association_id: <https://data.dsi.omgeving.vlaanderen.be/id/association/> .
+@prefix dsi_aktiviteit_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/activiteit/> .
+@prefix niscode_concept: <http://vocab.belgif.be/auth/refnis2019/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix dsi_status_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/procedurestatus/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dsi_unitofwork_id: <https://data.dsi.omgeving.vlaanderen.be/id/unitofwork/> .
+@prefix dsi_agent_id: <https://data.dsi.omgeving.vlaanderen.be/id/agent/> .
+@prefix dsi_thema_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/rupthema/> .
+@prefix dsi_work_id: <https://data.dsi.omgeving.vlaanderen.be/id/work/> .
+@prefix ova:   <https://data.vlaanderen.be/id/concept/organisatie_vlaamse_administratie/> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix sdmx-a: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix dsi_symboolinfo_id: <https://data.dsi.omgeving.vlaanderen.be/id/symboolinfo/> .
+@prefix dsi_stuk: <https://data.dsi.omgeving.vlaanderen.be/id/stuk/> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix dsi_plan_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/plan/> .
+@prefix dsi_download_base: <https://download.dsi.omgeving.vlaanderen.be/> .
+@prefix dsi_plan_id: <https://data.dsi.omgeving.vlaanderen.be/id/plan/> .
+@prefix dsi_stuk_id: <https://data.dsi.omgeving.vlaanderen.be/id/stuk/> .
+@prefix dsi_case: <https://data.dsi.omgeving.vlaanderen.be/id/case/> .
+@prefix dsi_location: <https://data.dsi.omgeving.vlaanderen.be/id/location/> .
+@prefix cs:    <https://data.vlaanderen.be/ns/chemische_stof#> .
+@prefix csc:   <https://data.omgeving.vlaanderen.be/id/concept/chemische_stof/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dsi_procedurestap: <https://data.dsi.omgeving.vlaanderen.be/id/procedurestap/> .
+@prefix dsi_work: <https://data.dsi.omgeving.vlaanderen.be/id/work/> .
+@prefix dsi_procedurestap_concept: <https://data.dsi.omgeving.vlaanderen.be/id/concept/procedurestap/> .
+@prefix dsi_tekstreferentie_id: <https://data.dsi.omgeving.vlaanderen.be/id/tekstreferentie/> .
+@prefix dsi_role_id: <https://data.dsi.omgeving.vlaanderen.be/id/role/> .
+@prefix dsi_gebiedsaanduiding_code: <https://data.dsi.omgeving.vlaanderen.be/id/concept/gebiedsaanduiding/> .
+@prefix dsi_plangebied_id: <https://data.dsi.omgeving.vlaanderen.be/id/plangebied/> .
+@prefix dsi_pn_id: <https://data.dsi.omgeving.vlaanderen.be/id/procedurestapneerslag/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/> .
+@prefix dsi_distribution_id: <https://data.dsi.omgeving.vlaanderen.be/id/distribution/> .
+
+dbo:UnitOfWork  a                       "rdfs:Resource" ;
+        rdfs:label                      "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dbo:procedure                   "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:type                         "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:alternative             "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:description             "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:hasPart                 dsi:Deelproces , dbo:UnitOfWork ;
+        dcterms:isPartOf                dossier:Procedurestap , dbo:UnitOfWork ;
+        dcterms:relation                dbo:UnitOfWork , dbo:Case ;
+        dcterms:title                   "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type                    "rdfs:Resource" ;
+        qb:order                        "http://www.w3.org/2001/XMLSchema#int" ;
+        skos:note                       "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML" ;
+        adms:identifier                 adms:Identifier ;
+        adms:last                       dossier:Procedurestap , dbo:UnitOfWork ;
+        adms:next                       dossier:Procedurestap , dbo:UnitOfWork ;
+        adms:status                     "rdfs:Resource" ;
+        dcat:contactPoint               vcard:Kind ;
+        dcat:theme                      "rdfs:Resource" ;
+        prov:wasInfluencedBy            prov:Agent , org:Organization ;
+        foaf:page                       "rdfs:Resource" ;
+        dsi:algplanid                   "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:begindatum                  "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:begindatumAdviesperiode     "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:begindatumOpenbaarOnderzoek
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:begindatumParticipatieEnAdviesperiode
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumBesluitTotGoedkeuring  "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumBesluitTotGoedkeuringDoorDeputatie
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumBesluitTotGoedkeuringDoorVlaamseRegering
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumDefinitieveVaststelling
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumDefinitieveVaststellingDoorGemeenteraad
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumDefinitieveVaststellingDoorProvincieraad
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumGemeenteraadsbesluit   "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumGoedkeuringStartnota   "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumInWerkingTreden        "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumPrincipieleGoedkeuringRUP
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumVoorlopigeVaststelling
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datum_pbs                   "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:duur                        waarde:Waarde ;
+        dsi:duurAdviesperiode           waarde:Waarde ;
+        dsi:duurOpenbaarOnderzoek       waarde:Waarde ;
+        dsi:duurParticipatieEnAdviesperiode
+                waarde:Waarde ;
+        dsi:einddatum                   "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:einddatumAdviesperiodeDatumPlenaireVergadering
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:fasedatum                   "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:gekwalificeerdeRelatie      dsi:Relatie ;
+        dsi:gerelateerdeZaak            dbo:Case , dbo:UnitOfWork ;
+        dsi:herinterpretatieOpAndereReferentiekaart
+                "http://www.w3.org/2001/XMLSchema#boolean" ;
+        dsi:linkBelgischStaatsBlad      "rdfs:Resource" ;
+        dsi:numac                       "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:plenaireVergadering         "http://www.w3.org/2001/XMLSchema#boolean" ;
+        besluitvorming:beleidsveld      "rdfs:Resource" ;
+        dossier:Procedurestap.einddatum
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dossier:doorloopt               dbo:UnitOfWork , dossier:Procedurestap .
+
+besluit:Besluit  a                 "rdfs:Resource" ;
+        rdfs:label                 "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:description        "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:title              "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type               "rdfs:Resource" ;
+        pav:version                "http://www.w3.org/2001/XMLSchema#string" ;
+        adms:identifier            adms:Identifier ;
+        dcat:theme                 "rdfs:Resource" ;
+        besluitvorming:volgnummer  "http://www.w3.org/2001/XMLSchema#string" ;
+        dossier:isVoorgesteldDoor  dcat:Distribution .
+
+prov:Association  a        "rdfs:Resource" ;
+        rdfs:label         "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcat:contactPoint  vcard:Kind ;
+        prov:agent         prov:Agent , org:Organization ;
+        prov:hadRole       "rdfs:Resource" .
+
+dsi:Planobject  a             "rdfs:Resource" ;
+        rdfs:comment          "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        rdfs:label            "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:title         "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type          "rdfs:Resource" ;
+        adms:identifier       adms:Identifier ;
+        dcat:theme            "rdfs:Resource" ;
+        dsi:categorie         "rdfs:Resource" ;
+        dsi:deelgebiednummer  "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:isDeelgebiedVan   dsi:Onteigeningsplangebied , dsi:Plangebied , dsi:Bestemmingsplangebied ;
+        dsi:isPlanelementVan  dsi:Plangebied , dsi:Bestemmingsplangebied , dsi:Rooilijnplangebied ;
+        dsi:nummer            "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:omtrek            waarde:Waarde ;
+        dsi:ondergrond        dsi:Kaartondergrond ;
+        dsi:oppervlakte       waarde:Waarde ;
+        dsi:plangebied        dsi:Bestemmingsplangebied , dsi:Onteigeningsplangebied , dsi:Plangebied , dsi:Rooilijnplangebied ;
+        dsi:subcategorie      "rdfs:Resource" ;
+        dsi:symboolinfo       dsi:Symboolinfo ;
+        dsi:tekstreferentie   dsi:Tekstreferentie .
+
+dsi:Kaartondergrond  a       "rdfs:Resource" ;
+        rdfs:label           "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:date         "http://www.w3.org/2001/XMLSchema#date" ;
+        dcterms:description  "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type         "rdfs:Resource" ;
+        dsi:precisie         "http://www.w3.org/2001/XMLSchema#double" .
+
+dsi:Bestemmingsplangebied
+        a                        "rdfs:Resource" ;
+        rdfs:comment             "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        rdfs:label               "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:alternative      "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:title            "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type             "rdfs:Resource" ;
+        pav:previousVersion      dsi:Bestemmingsplangebied , dsi:Plangebied ;
+        adms:identifier          adms:Identifier ;
+        dsi:algplanid            "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:deelgebied           dsi:Deelgebied , dsi:Planobject ;
+        dsi:lokaleid             "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:omtrek               waarde:Waarde ;
+        dsi:ondergrond           dsi:Kaartondergrond ;
+        dsi:oppervlakte          waarde:Waarde ;
+        dsi:planelement          dsi:Planelement , dsi:Planobject ;
+        dsi:plannatrajectgebied  dsi:Plannatrajectgebied , dsi:Plangebied ;
+        dsi:planschorsinggebied  dsi:Planschorsinggebied , dsi:Plangebied ;
+        dsi:proces               dossier:Procedurestap , dbo:UnitOfWork , dsi:Natraject .
+
+waarde:Waarde  a            "rdfs:Resource" ;
+        rdf:value           "http://www.w3.org/2001/XMLSchema#nonNegativeInteger" , "http://www.w3.org/2001/XMLSchema#double" ;
+        rdfs:label          "http://www.w3.org/2001/XMLSchema#string" ;
+        sdmx-a:unitMeasure  "http://www.w3.org/2001/XMLSchema#string" .
+
+dossier:Procedurestap
+        a                               "rdfs:Resource" ;
+        rdfs:label                      "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:type                         "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:alternative             "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:hasPart                 dbo:UnitOfWork , dsi:Deelproces ;
+        dcterms:title                   "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type                    "rdfs:Resource" ;
+        qb:order                        "http://www.w3.org/2001/XMLSchema#int" ;
+        skos:note                       "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML" ;
+        adms:identifier                 adms:Identifier ;
+        adms:next                       dbo:UnitOfWork , dossier:Procedurestap ;
+        foaf:page                       "rdfs:Resource" ;
+        dsi:datumBesluitTotGoedkeuring  "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumBesluitTotGoedkeuringDoorDeputatie
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumBesluitTotGoedkeuringDoorVlaamseRegering
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumDefinitieveVaststelling
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumDefinitieveVaststellingDoorGemeenteraad
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumDefinitieveVaststellingDoorProvincieraad
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumGemeenteraadsbesluit   "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumGoedkeuringStartnota   "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumInWerkingTreden        "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumPrincipieleGoedkeuringRUP
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datumVoorlopigeVaststelling
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:datum_pbs                   "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:einddatum                   "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:fasedatum                   "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:herinterpretatieOpAndereReferentiekaart
+                "http://www.w3.org/2001/XMLSchema#boolean" ;
+        dsi:linkBelgischStaatsBlad      "rdfs:Resource" ;
+        dsi:numac                       "http://www.w3.org/2001/XMLSchema#string" ;
+        dossier:Procedurestap.einddatum
+                "http://www.w3.org/2001/XMLSchema#date" .
+
+dsi:Onteigeningsplangebied
+        a                    "rdfs:Resource" ;
+        rdfs:comment         "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        rdfs:label           "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:alternative  "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:title        "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type         "rdfs:Resource" ;
+        adms:identifier      adms:Identifier ;
+        dsi:algplanid        "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:deelgebied       dsi:Deelgebied , dsi:Planobject ;
+        dsi:lokaleid         "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:omtrek           waarde:Waarde ;
+        dsi:ondergrond       dsi:Kaartondergrond ;
+        dsi:oppervlakte      waarde:Waarde ;
+        dsi:proces           dbo:UnitOfWork , dossier:Procedurestap .
+
+dossier:Stuk  a                         "rdfs:Resource" ;
+        rdfs:label                      "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:date                    "http://www.w3.org/2001/XMLSchema#date" ;
+        dcterms:description             "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:relation                dossier:Stuk ;
+        dcterms:subject                 dossier:Stuk ;
+        dcterms:title                   "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type                    "rdfs:Resource" ;
+        pav:version                     "http://www.w3.org/2001/XMLSchema#string" ;
+        adms:identifier                 adms:Identifier ;
+        dcat:theme                      "rdfs:Resource" ;
+        prov:value                      "http://www.w3.org/2001/XMLSchema#string" ;
+        prov:wasAttributedTo            prov:Agent , org:Organization ;
+        dsi:aanwezigOpPlenaireVergadering
+                "http://www.w3.org/2001/XMLSchema#boolean" ;
+        dsi:aardVanHetAdvies            "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:attribuutDelegerenAan       prov:Agent , org:Organization ;
+        dsi:attribuutGedelegeerdDoor    prov:Agent , org:Organization ;
+        dsi:begindatumAdviesperiode     "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:begindatumOpenbaarOnderzoek
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:begindatumParticipatieEnAdviesperiode
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:bevatGeenPersoonsgegevens   "http://www.w3.org/2001/XMLSchema#boolean" ;
+        dsi:datumAdvies                 "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:duurAdviesperiode           waarde:Waarde ;
+        dsi:duurOpenbaarOnderzoek       waarde:Waarde ;
+        dsi:duurParticipatieEnAdviesperiode
+                waarde:Waarde ;
+        dsi:einddatumAdviesperiodeDatumPlenaireVergadering
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:erfgoedlandschapOpgenomenInDitRUP
+                "http://www.w3.org/2001/XMLSchema#boolean" ;
+        dsi:linkDigitalePlenaireVergadering
+                "rdfs:Resource" ;
+        dsi:locatiePlenaireVergadering  "rdfs:Resource" ;
+        dsi:plenaireVergadering         "http://www.w3.org/2001/XMLSchema#boolean" ;
+        dsi:tijdstipPlenaireVergadering
+                "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:voorwaarden                 "http://www.w3.org/2001/XMLSchema#string" ;
+        besluitvorming:volgnummer       "http://www.w3.org/2001/XMLSchema#string" ;
+        dossier:isVoorgesteldDoor       dcat:Distribution .
+
+dsi:Planelement  a            "rdfs:Resource" ;
+        rdfs:comment          "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        rdfs:label            "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:title         "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type          "rdfs:Resource" ;
+        adms:identifier       adms:Identifier ;
+        dcat:theme            "rdfs:Resource" ;
+        dsi:categorie         "rdfs:Resource" ;
+        dsi:deelgebiednummer  "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:isPlanelementVan  dsi:Bestemmingsplangebied , dsi:Rooilijnplangebied , dsi:Plangebied ;
+        dsi:omtrek            waarde:Waarde ;
+        dsi:ondergrond        dsi:Kaartondergrond ;
+        dsi:oppervlakte       waarde:Waarde ;
+        dsi:plangebied        dsi:Rooilijnplangebied , dsi:Plangebied , dsi:Bestemmingsplangebied ;
+        dsi:subcategorie      "rdfs:Resource" ;
+        dsi:symboolinfo       dsi:Symboolinfo ;
+        dsi:tekstreferentie   dsi:Tekstreferentie .
+
+dsi:Relatie  a            "rdfs:Resource" ;
+        rdfs:label        "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:type           "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:relation  dbo:Case , dbo:UnitOfWork ;
+        dcterms:type      "rdfs:Resource" .
+
+dsi:Deelgebied  a            "rdfs:Resource" ;
+        rdfs:comment         "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        rdfs:label           "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:title        "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type         "rdfs:Resource" ;
+        adms:identifier      adms:Identifier ;
+        dsi:isDeelgebiedVan  dsi:Bestemmingsplangebied , dsi:Plangebied , dsi:Onteigeningsplangebied ;
+        dsi:nummer           "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:omtrek           waarde:Waarde ;
+        dsi:ondergrond       dsi:Kaartondergrond ;
+        dsi:oppervlakte      waarde:Waarde ;
+        dsi:plangebied       dsi:Plangebied , dsi:Onteigeningsplangebied , dsi:Bestemmingsplangebied .
+
+prov:Location  a    "rdfs:Resource" ;
+        rdfs:label  "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" .
+
+dsi:Natraject  a              "rdfs:Resource" ;
+        rdfs:label            "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:type               "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:alternative   "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:relation      dbo:Case , dbo:UnitOfWork ;
+        dcterms:title         "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type          "rdfs:Resource" ;
+        skos:note             "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML" ;
+        adms:identifier       adms:Identifier ;
+        adms:status           "rdfs:Resource" ;
+        dsi:datum_pbs         "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:fasedatum         "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:gerelateerdeZaak  dbo:Case , dbo:UnitOfWork ;
+        dsi:herinterpretatieOpAndereReferentiekaart
+                "http://www.w3.org/2001/XMLSchema#boolean" .
+
+dsi:Deelproces  a                    "rdfs:Resource" ;
+        rdfs:label                   "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:type                      "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:isPartOf             dossier:Procedurestap , dbo:UnitOfWork ;
+        dsi:begindatum               "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:begindatumAdviesperiode  "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:begindatumOpenbaarOnderzoek
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:begindatumParticipatieEnAdviesperiode
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:duur                     waarde:Waarde ;
+        dsi:duurAdviesperiode        waarde:Waarde ;
+        dsi:duurOpenbaarOnderzoek    waarde:Waarde ;
+        dsi:duurParticipatieEnAdviesperiode
+                waarde:Waarde ;
+        dsi:einddatum                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:einddatumAdviesperiodeDatumPlenaireVergadering
+                "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:plenaireVergadering      "http://www.w3.org/2001/XMLSchema#boolean" .
+
+dsi:Plangebied  a                 "rdfs:Resource" ;
+        rdfs:comment              "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        rdfs:label                "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:alternative       "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:date              "http://www.w3.org/2001/XMLSchema#date" ;
+        dcterms:issued            "http://www.w3.org/2001/XMLSchema#date" ;
+        dcterms:relation          dsi:Plangebied , dsi:Bestemmingsplangebied , dsi:Verordeningsgebied ;
+        dcterms:title             "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type              "rdfs:Resource" ;
+        pav:previousVersion       dsi:Plangebied , dsi:Verordeningsgebied , dsi:Bestemmingsplangebied ;
+        adms:identifier           adms:Identifier ;
+        dsi:algplanid             "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:begindatum            "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:beslissing            "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:datum_pbs             "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:deelgebied            dsi:Planobject , dsi:Deelgebied ;
+        dsi:einddatum             "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:isNatrajectgebiedVan  dsi:Verordeningsgebied , dsi:Bestemmingsplangebied , dsi:Plangebied ;
+        dsi:isSchorsinggebiedVan  dsi:Bestemmingsplangebied , dsi:Plangebied ;
+        dsi:lokaleid              "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:omtrek                waarde:Waarde ;
+        dsi:ondergrond            dsi:Kaartondergrond ;
+        dsi:oppervlakte           waarde:Waarde ;
+        dsi:planelement           dsi:Planobject , dsi:Planelement ;
+        dsi:plannatrajectgebied   dsi:Plannatrajectgebied , dsi:Plangebied ;
+        dsi:planschorsinggebied   dsi:Plangebied , dsi:Planschorsinggebied ;
+        dsi:proces                dbo:UnitOfWork , dsi:Natraject , dossier:Procedurestap .
+
+adms:Identifier  a     "rdfs:Resource" ;
+        rdf:value      "http://www.w3.org/2001/XMLSchema#string" ;
+        rdfs:label     "http://www.w3.org/2001/XMLSchema#string" ;
+        dc:source      "http://www.w3.org/2001/XMLSchema#string" ;
+        dc:type        "http://www.w3.org/2001/XMLSchema#string" ;
+        skos:notation  "urn:uuid:" , "https://data.dsi.omgeving.vlaanderen.be/id/natrajectneerslag/" , "https://data.dsi.omgeving.vlaanderen.be/id/stuk/" , "https://data.dsi.omgeving.vlaanderen.be/id/dossier/" , "https://data.dsi.omgeving.vlaanderen.be/id/case/" , "https://data.dsi.omgeving.vlaanderen.be/id/procedurestapneerslag/" , "https://data.dsi.omgeving.vlaanderen.be/id/natraject/" , "https://data.dsi.omgeving.vlaanderen.be/ns/dsi#KBONummer" , "https://data.dsi.omgeving.vlaanderen.be/id/procedurestap/" , "https://data.dsi.omgeving.vlaanderen.be/ns/dsi#OVOCode" .
+
+org:Organization  a              "rdfs:Resource" ;
+        rdfs:label               "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:source                "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:coverage         "rdfs:Resource" ;
+        adms:identifier          adms:Identifier ;
+        dcat:contactPoint        vcard:Kind ;
+        dsi:contourCompleet      "http://www.w3.org/2001/XMLSchema#boolean" ;
+        dsi:kbonummer            "https://data.dsi.omgeving.vlaanderen.be/ns/dsi#KBONummer" ;
+        dsi:ovocode              "https://data.dsi.omgeving.vlaanderen.be/ns/dsi#OVOCode" ;
+        dsi:planelementCompleet  "http://www.w3.org/2001/XMLSchema#boolean" .
+
+omgeving_dossier:Procedurestapneerslag
+        a                      "rdfs:Resource" ;
+        rdfs:label             "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:type                "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:title          "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        adms:identifier        adms:Identifier ;
+        prov:hadMember         besluit:Besluit , dossier:Stuk ;
+        dossier:isNeerslagVan  dossier:Procedurestap , dbo:UnitOfWork .
+
+dcat:Distribution  a      "rdfs:Resource" ;
+        rdfs:label        "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:format         "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:format    "rdfs:Resource" ;
+        dcterms:title     "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcat:accessURL    "rdfs:Resource" ;
+        dcat:byteSize     "http://www.w3.org/2001/XMLSchema#nonNegativeInteger" ;
+        dcat:downloadURL  "rdfs:Resource" ;
+        dcat:mediaType    "rdfs:Resource" .
+
+dossier:Dossier  a             "rdfs:Resource" ;
+        rdfs:label             "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:type                "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:title          "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        adms:identifier        adms:Identifier ;
+        prov:hadMember         prov:Collection , omgeving_dossier:Procedurestapneerslag ;
+        foaf:homepage          "rdfs:Resource" ;
+        dsi:neerslagNatraject  dsi:Natrajectneerslag , prov:Collection ;
+        dossier:isNeerslagVan  dbo:UnitOfWork , dbo:Case .
+
+dsi:Tekstreferentie  a      "rdfs:Resource" ;
+        rdfs:label          "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:identifier  "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:title       "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dsi:link            "rdfs:Resource" ;
+        dsi:nummer          "http://www.w3.org/2001/XMLSchema#string" .
+
+dsi:Natrajectneerslag
+        a                      "rdfs:Resource" ;
+        rdfs:label             "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:type                "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:title          "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        adms:identifier        adms:Identifier ;
+        prov:hadMember         dossier:Stuk ;
+        dossier:isNeerslagVan  dbo:UnitOfWork , dsi:Natraject .
+
+dsi:Rooilijnplangebied
+        a                    "rdfs:Resource" ;
+        rdfs:comment         "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        rdfs:label           "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:alternative  "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:title        "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type         "rdfs:Resource" ;
+        adms:identifier      adms:Identifier ;
+        dsi:algplanid        "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:lokaleid         "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:omtrek           waarde:Waarde ;
+        dsi:ondergrond       dsi:Kaartondergrond ;
+        dsi:oppervlakte      waarde:Waarde ;
+        dsi:planelement      dsi:Planelement , dsi:Planobject ;
+        dsi:proces           dossier:Procedurestap , dbo:UnitOfWork .
+
+dsi:Symboolinfo  a   "rdfs:Resource" ;
+        rdfs:label   "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:legende  "http://www.w3.org/2001/XMLSchema#string" .
+
+prov:Collection  a             "rdfs:Resource" ;
+        rdfs:label             "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:type                "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:title          "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        adms:identifier        adms:Identifier ;
+        prov:hadMember         prov:Collection , omgeving_dossier:Procedurestapneerslag , dossier:Stuk , besluit:Besluit ;
+        foaf:homepage          "rdfs:Resource" ;
+        dsi:neerslagNatraject  dsi:Natrajectneerslag , prov:Collection ;
+        dossier:isNeerslagVan  dbo:Case , dbo:UnitOfWork , dsi:Natraject , dossier:Procedurestap .
+
+dsi:Verordeningsgebied
+        a                        "rdfs:Resource" ;
+        rdfs:comment             "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        rdfs:label               "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:alternative      "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:title            "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type             "rdfs:Resource" ;
+        pav:previousVersion      dsi:Verordeningsgebied , dsi:Plangebied ;
+        adms:identifier          adms:Identifier ;
+        dsi:algplanid            "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:lokaleid             "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:omtrek               waarde:Waarde ;
+        dsi:ondergrond           dsi:Kaartondergrond ;
+        dsi:oppervlakte          waarde:Waarde ;
+        dsi:plannatrajectgebied  dsi:Plangebied , dsi:Plannatrajectgebied ;
+        dsi:proces               dbo:UnitOfWork , dossier:Procedurestap , dsi:Natraject .
+
+dbo:Case  a                         "rdfs:Resource" ;
+        rdfs:label                  "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dbo:procedure               "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:type                     "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:alternative         "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:description         "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:relation            dbo:Case , dbo:UnitOfWork ;
+        dcterms:title               "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:type                "rdfs:Resource" ;
+        adms:identifier             adms:Identifier ;
+        adms:last                   dbo:UnitOfWork , dossier:Procedurestap ;
+        adms:status                 "rdfs:Resource" ;
+        dcat:contactPoint           vcard:Kind ;
+        dcat:theme                  "rdfs:Resource" ;
+        prov:wasInfluencedBy        org:Organization , prov:Agent ;
+        dsi:algplanid               "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:gekwalificeerdeRelatie  dsi:Relatie ;
+        dsi:gerelateerdeZaak        dbo:Case , dbo:UnitOfWork ;
+        besluitvorming:beleidsveld  "rdfs:Resource" ;
+        dossier:doorloopt           dossier:Procedurestap , dbo:UnitOfWork .
+
+dsi:Planschorsinggebied
+        a                         "rdfs:Resource" ;
+        rdfs:comment              "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        rdfs:label                "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:date              "http://www.w3.org/2001/XMLSchema#date" ;
+        dcterms:relation          dsi:Bestemmingsplangebied , dsi:Plangebied ;
+        dcterms:type              "rdfs:Resource" ;
+        adms:identifier           adms:Identifier ;
+        dsi:begindatum            "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:beslissing            "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:einddatum             "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:isSchorsinggebiedVan  dsi:Plangebied , dsi:Bestemmingsplangebied ;
+        dsi:lokaleid              "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:omtrek                waarde:Waarde ;
+        dsi:ondergrond            dsi:Kaartondergrond ;
+        dsi:oppervlakte           waarde:Waarde ;
+        dsi:proces                dossier:Procedurestap , dbo:UnitOfWork .
+
+dsi:Plannatrajectgebied
+        a                         "rdfs:Resource" ;
+        rdfs:comment              "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        rdfs:label                "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:date              "http://www.w3.org/2001/XMLSchema#date" ;
+        dcterms:issued            "http://www.w3.org/2001/XMLSchema#date" ;
+        dcterms:relation          dsi:Verordeningsgebied , dsi:Plangebied , dsi:Bestemmingsplangebied ;
+        dcterms:type              "rdfs:Resource" ;
+        adms:identifier           adms:Identifier ;
+        dsi:begindatum            "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:beslissing            "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:datum_pbs             "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:einddatum             "http://www.w3.org/2001/XMLSchema#date" ;
+        dsi:isNatrajectgebiedVan  dsi:Verordeningsgebied , dsi:Plangebied , dsi:Bestemmingsplangebied ;
+        dsi:lokaleid              "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:omtrek                waarde:Waarde ;
+        dsi:ondergrond            dsi:Kaartondergrond ;
+        dsi:oppervlakte           waarde:Waarde ;
+        dsi:proces                dbo:UnitOfWork , dsi:Natraject .
+
+prov:Activity  a                    "rdfs:Resource" ;
+        rdfs:label                  "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dcterms:date                "http://www.w3.org/2001/XMLSchema#dateTime" ;
+        dcterms:type                "rdfs:Resource" ;
+        prov:atLocation             prov:Location ;
+        prov:generated              dossier:Stuk ;
+        prov:qualifiedAssociation   prov:Association ;
+        prov:used                   dossier:Stuk ;
+        prov:wasAssociatedWith      prov:Agent , org:Organization ;
+        prov:wasInformedBy          prov:Activity ;
+        dsi:advies                  "rdfs:Resource" ;
+        dsi:link                    "rdfs:Resource" ;
+        dsi:tijdstipPlenaireVergadering
+                "http://www.w3.org/2001/XMLSchema#string" ;
+        dossier:vindtPlaatsTijdens  dbo:UnitOfWork , dsi:Deelproces , dossier:Procedurestap .
+
+prov:Agent  a                    "rdfs:Resource" ;
+        rdfs:label               "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dc:source                "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:coverage         "rdfs:Resource" ;
+        adms:identifier          adms:Identifier ;
+        dcat:contactPoint        vcard:Kind ;
+        dsi:contourCompleet      "http://www.w3.org/2001/XMLSchema#boolean" ;
+        dsi:kbonummer            "https://data.dsi.omgeving.vlaanderen.be/ns/dsi#KBONummer" ;
+        dsi:ovocode              "https://data.dsi.omgeving.vlaanderen.be/ns/dsi#OVOCode" ;
+        dsi:planelementCompleet  "http://www.w3.org/2001/XMLSchema#boolean" .
+
+vcard:Kind  a              "rdfs:Resource" ;
+        rdfs:label         "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" ;
+        dbo:status         "http://www.w3.org/2001/XMLSchema#string" ;
+        dcterms:relation   prov:Agent , org:Organization ;
+        vcard:hasRole      "rdfs:Resource" ;
+        vcard:note         "http://www.w3.org/2001/XMLSchema#string" ;
+        vcard:role         "http://www.w3.org/2001/XMLSchema#string" ;
+        dsi:beheerderMail  "http://www.w3.org/2001/XMLSchema#boolean" .
